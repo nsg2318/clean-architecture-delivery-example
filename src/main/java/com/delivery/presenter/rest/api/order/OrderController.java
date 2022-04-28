@@ -14,6 +14,7 @@ import com.delivery.presenter.rest.api.entities.OrderRequest;
 import com.delivery.presenter.rest.api.entities.OrderResponse;
 import com.delivery.presenter.usecases.security.CurrentUser;
 import com.delivery.presenter.usecases.security.UserPrincipal;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,30 +25,15 @@ import javax.validation.Valid;
 import java.util.concurrent.CompletableFuture;
 
 @Controller
+@RequiredArgsConstructor
 public class OrderController implements OrderResource {
-    private UseCaseExecutor useCaseExecutor;
-    private CreateOrderUseCase createOrderUseCase;
-    private GetOrderUseCase getOrderUseCase;
-    private GetCustomerOrderUseCase getCustomerOrderUseCase;
-    private DeleteOrderUseCase deleteOrderUseCase;
-    private PayOrderUseCase payOrderUseCase;
-    private DeliveryOrderUseCase deliveryOrderUseCase;
-
-    public OrderController(UseCaseExecutor useCaseExecutor,
-                           CreateOrderUseCase createOrderUseCase,
-                           GetOrderUseCase getOrderUseCase,
-                           GetCustomerOrderUseCase getCustomerOrderUseCase,
-                           DeleteOrderUseCase deleteOrderUseCase,
-                           PayOrderUseCase payOrderUseCase,
-                           DeliveryOrderUseCase deliveryOrderUseCase) {
-        this.useCaseExecutor = useCaseExecutor;
-        this.createOrderUseCase = createOrderUseCase;
-        this.getOrderUseCase = getOrderUseCase;
-        this.getCustomerOrderUseCase = getCustomerOrderUseCase;
-        this.deleteOrderUseCase = deleteOrderUseCase;
-        this.payOrderUseCase = payOrderUseCase;
-        this.deliveryOrderUseCase = deliveryOrderUseCase;
-    }
+    private final UseCaseExecutor useCaseExecutor;
+    private final CreateOrderUseCase createOrderUseCase;
+    private final GetOrderUseCase getOrderUseCase;
+    private final GetCustomerOrderUseCase getCustomerOrderUseCase;
+    private final DeleteOrderUseCase deleteOrderUseCase;
+    private final PayOrderUseCase payOrderUseCase;
+    private final DeliveryOrderUseCase deliveryOrderUseCase;
 
     @Override
     public CompletableFuture<ResponseEntity<ApiResponse>> create(@CurrentUser UserPrincipal userDetails,

@@ -14,6 +14,7 @@ public class CreateCustomerInputMapper {
     }
 
     public CreateCustomerUseCase.InputValues map(SignUpRequest signUpRequest) {
+        int a =1;
         return new CreateCustomerUseCase.InputValues(
                 signUpRequest.getName(),
                 signUpRequest.getEmail(),

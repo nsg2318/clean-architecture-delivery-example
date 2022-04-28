@@ -1,28 +1,14 @@
 package com.delivery.presenter.config;
 
-import com.delivery.core.usecases.order.DeleteOrderUseCase;
-import com.delivery.core.usecases.order.DeliveryOrderUseCase;
-import com.delivery.core.usecases.order.GetOrderUseCase;
 import com.delivery.core.usecases.cousine.CousineRepository;
 import com.delivery.core.usecases.cousine.GetAllCousinesUseCase;
 import com.delivery.core.usecases.cousine.GetStoresByCousineUseCase;
 import com.delivery.core.usecases.cousine.SearchCousineByNameUseCase;
 import com.delivery.core.usecases.customer.CreateCustomerUseCase;
 import com.delivery.core.usecases.customer.CustomerRepository;
-import com.delivery.core.usecases.order.CreateOrderUseCase;
-import com.delivery.core.usecases.order.GetCustomerOrderUseCase;
-import com.delivery.core.usecases.order.OrderRepository;
-import com.delivery.core.usecases.order.PayOrderUseCase;
-import com.delivery.core.usecases.product.GetAllProductsUseCase;
-import com.delivery.core.usecases.product.GetProductUseCase;
-import com.delivery.core.usecases.product.GetProductsByStoreAndProductsIdUseCase;
-import com.delivery.core.usecases.product.ProductRepository;
-import com.delivery.core.usecases.product.SearchProductsByNameOrDescriptionUseCase;
-import com.delivery.core.usecases.store.GetAllStoresUseCase;
-import com.delivery.core.usecases.store.GetProductsByStoreUseCase;
-import com.delivery.core.usecases.store.GetStoreUseCase;
-import com.delivery.core.usecases.store.SearchStoresByNameUseCase;
-import com.delivery.core.usecases.store.StoreRepository;
+import com.delivery.core.usecases.order.*;
+import com.delivery.core.usecases.product.*;
+import com.delivery.core.usecases.store.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -119,4 +105,5 @@ public class Module {
     public SearchCousineByNameUseCase searchCousineByNameUseCase(CousineRepository repository) {
         return new SearchCousineByNameUseCase(repository);
     }
+
 }
